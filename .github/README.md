@@ -1,12 +1,6 @@
 # GitHub Actions CI/CD Pipeline
 
-## Overview
-
-This repository uses GitHub Actions for continuous integration and deployment. The pipeline ensures code quality, security, and reliability through automated testing and analysis.
-
-## Workflows
-
-### 1. CI/CD Pipeline (`ci.yml`)
+### 1. CI/CD Pipeline
 
 **Triggers:**
 - Push to `main` or `develop` branches
@@ -21,32 +15,12 @@ This repository uses GitHub Actions for continuous integration and deployment. T
 - **Composer** dependency management
 - **PHP CS Fixer** code style checking
 - **PHPStan** static analysis
-- **Rector** code modernization (dry run)
 - **PHPUnit** unit and integration tests
 - **Code coverage** reporting
 
 #### Security Check
-- **Composer audit** for dependency vulnerabilities
+- **Composer audit** for dependency vulnerabilities (temporary disabled due to lock with Symfony version)
 - **Production dependencies** only
-
-#### Docker Build Test
-- **Docker image** build verification
-- **Docker Compose** configuration validation
-
-### 2. Deploy to Production (`deploy.yml`)
-
-**Triggers:**
-- Push to `main` branch (after successful CI/CD pipeline)
-- Manual workflow run
-
-**Jobs:**
-
-#### Deploy to Production
-- **Production environment** setup
-- **Cache optimization** and warmup
-- **Configuration validation**
-- **Deprecation checks**
-- **Deployment notification**
 
 ## Features
 
@@ -59,18 +33,11 @@ This repository uses GitHub Actions for continuous integration and deployment. T
 ### 📊 Code Quality
 - **PHP CS Fixer**: PSR-12 + Symfony standards
 - **PHPStan**: Level 8 static analysis
-- **Rector**: Code modernization suggestions
 - **Coverage**: Code coverage reporting
 
 ### 🔒 Security
-- **Composer Audit**: Dependency vulnerability scanning
 - **Production Build**: Security-focused deployment
 - **Environment Validation**: Configuration verification
-
-### 🐳 Docker Integration
-- **Multi-stage builds**: Optimized production images
-- **Service validation**: MySQL, Redis, PHP
-- **Compose testing**: Configuration verification
 
 ### ⚡ Performance
 - **Caching**: Composer, PHP CS Fixer, PHPStan
@@ -121,19 +88,6 @@ composer phpstan
 composer static-analysis
 ```
 
-### CI/CD Pipeline
-The pipeline runs automatically on:
-1. **Push to main/develop** - Full CI/CD
-2. **Pull Request** - Tests and analysis
-3. **Manual trigger** - On-demand execution
-
-### Deployment
-Production deployment is triggered automatically when:
-- ✅ CI/CD pipeline passes
-- ✅ Push to main branch
-- ✅ All tests pass
-- ✅ Security checks pass
-
 ## Monitoring
 
 ### Coverage Reports
@@ -151,76 +105,3 @@ Production deployment is triggered automatically when:
 - **Success**: Deployment confirmation
 - **Failure**: Detailed error reporting
 - **Coverage**: Coverage statistics
-
-## Troubleshooting
-
-### Common Issues
-
-#### Database Connection
-```bash
-# Check MySQL service
-mysqladmin ping -h"127.0.0.1" -P"3306"
-
-# Check Redis service
-redis-cli -h 127.0.0.1 -p 6379 ping
-```
-
-#### Cache Issues
-```bash
-# Clear cache
-php bin/console cache:clear --env=test
-
-# Warm up cache
-php bin/console cache:warmup --env=prod
-```
-
-#### Test Failures
-```bash
-# Run specific test
-php bin/phpunit tests/Unit/Core/User/Domain/UserTest.php
-
-# Run with coverage
-php bin/phpunit --coverage-text --coverage-filter=src/
-```
-
-### Debug Commands
-```bash
-# Validate configuration
-php bin/console debug:config --env=test
-
-# Check deprecations
-php bin/console debug:container --env=prod --deprecations
-
-# Validate composer
-composer validate --strict
-```
-
-## Contributing
-
-### Before Committing
-1. **Run tests locally**: `php bin/phpunit`
-2. **Check code style**: `composer cs-check`
-3. **Static analysis**: `composer phpstan`
-4. **All checks**: `composer static-analysis`
-
-### Pull Request Process
-1. **Create feature branch** from develop
-2. **Write tests** for new functionality
-3. **Update documentation** if needed
-4. **Submit PR** to develop branch
-5. **CI/CD pipeline** runs automatically
-6. **Code review** and approval
-7. **Merge to develop** when ready
-8. **Deploy to production** from main
-
-## Support
-
-For issues with the CI/CD pipeline:
-1. Check the **Actions tab** in GitHub
-2. Review **workflow logs** for errors
-3. Verify **environment setup**
-4. Contact **development team**
-
----
-
-**🚀 Happy coding with confidence!**

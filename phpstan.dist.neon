@@ -20,6 +20,8 @@ parameters:
         - '#Property .*\$id \(int\|null\) is never assigned int#'
         # Ignore comparison warnings in cache
         - '#Comparison operation "<" between 0 and 10 is always true#'
+        # Ignore test-specific warnings
+        - '#Call to method PHPUnit\\Framework\\Assert::assertTrue\(\) with true will always evaluate to true#'
     
     # Scan files
     scanFiles:

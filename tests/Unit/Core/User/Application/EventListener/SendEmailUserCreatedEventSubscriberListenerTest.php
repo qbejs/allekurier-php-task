@@ -31,7 +31,7 @@ class SendEmailUserCreatedEventSubscriberListenerTest extends TestCase
         $email = 'test@example.com';
         $user = $this->createMock(User::class);
         $user->method('getEmail')->willReturn($email);
-        
+
         $event = new UserCreatedEvent($user);
         $subject = 'Zarejestrowano konto w systemie';
         $body = 'Zarejestrowano konto w systemie. Aktywacja konta trwa do 24h';
@@ -73,7 +73,7 @@ class SendEmailUserCreatedEventSubscriberListenerTest extends TestCase
         $email = 'another@example.com';
         $user = $this->createMock(User::class);
         $user->method('getEmail')->willReturn($email);
-        
+
         $event = new UserCreatedEvent($user);
         $subject = 'Zarejestrowano konto w systemie';
         $body = 'Zarejestrowano konto w systemie. Aktywacja konta trwa do 24h';

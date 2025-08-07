@@ -32,10 +32,10 @@ class SendEmailInvoiceCreatedEventSubscriberListenerTest extends TestCase
         $email = 'test@example.com';
         $user = $this->createMock(User::class);
         $user->method('getEmail')->willReturn($email);
-        
+
         $invoice = $this->createMock(Invoice::class);
         $invoice->method('getUser')->willReturn($user);
-        
+
         $event = new InvoiceCreatedEvent($invoice);
         $subject = 'Utworzono fakturę';
         $body = 'Dla twojego konta została wystawiona faktura';
@@ -77,10 +77,10 @@ class SendEmailInvoiceCreatedEventSubscriberListenerTest extends TestCase
         $email = 'another@example.com';
         $user = $this->createMock(User::class);
         $user->method('getEmail')->willReturn($email);
-        
+
         $invoice = $this->createMock(Invoice::class);
         $invoice->method('getUser')->willReturn($user);
-        
+
         $event = new InvoiceCreatedEvent($invoice);
         $subject = 'Utworzono fakturę';
         $body = 'Dla twojego konta została wystawiona faktura';

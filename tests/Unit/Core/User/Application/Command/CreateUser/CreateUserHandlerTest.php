@@ -32,7 +32,7 @@ class CreateUserHandlerTest extends TestCase
             ->expects($this->once())
             ->method('save')
             ->with($this->callback(function (User $user) use ($email) {
-                return $user->getEmail() === $email && !$user->isActive();
+                return $user->getEmail() === $email && ! $user->isActive();
             }));
 
         $this->userRepository
@@ -56,7 +56,7 @@ class CreateUserHandlerTest extends TestCase
             ->expects($this->once())
             ->method('save')
             ->with($this->callback(function (User $user) use ($email) {
-                return $user->getEmail() === $email && !$user->isActive();
+                return $user->getEmail() === $email && ! $user->isActive();
             }));
 
         $this->userRepository

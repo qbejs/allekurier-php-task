@@ -94,12 +94,6 @@ jobs:
             sleep 1
           done
 
-      - name: Wait for Redis
-        run: |
-          while ! redis-cli -h 127.0.0.1 -p 6379 ping; do
-            sleep 1
-          done
-
       - name: Run database migrations
         run: |
           php bin/console doctrine:database:create --if-not-exists --env=test

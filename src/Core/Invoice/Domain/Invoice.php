@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Invoice\Domain;
 
 use App\Common\EventManager\EventsCollectorTrait;
@@ -12,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="invoices")
  */
 class Invoice
@@ -20,16 +23,12 @@ class Invoice
 
     /**
      * @ORM\Id
+     *
      * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=false)
+     *
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private ?int $id;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Core\User\Domain\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
-     */
-    private User $user;
 
     /**
      * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=false)
@@ -41,18 +40,20 @@ class Invoice
      */
     private InvoiceStatus $status;
 
-    /**
-     * @param User $user
-     * @param int $amount
-     */
-    public function __construct(User $user, int $amount)
-    {
+    public function __construct(
+        /**
+         * @ORM\ManyToOne(targetEntity="App\Core\User\Domain\User", cascade={"persist"})
+         *
+         * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+         */
+        private User $user,
+        int $amount
+    ) {
         if ($amount <= 0) {
             throw new InvoiceException('Kwota faktury musi być większa od 0');
         }
 
         $this->id = null;
-        $this->user = $user;
         $this->amount = $amount;
         $this->status = InvoiceStatus::NEW;
 
@@ -78,5 +79,10 @@ class Invoice
     public function getAmount(): int
     {
         return $this->amount;
+    }
+
+    public function getStatus(): InvoiceStatus
+    {
+        return $this->status;
     }
 }

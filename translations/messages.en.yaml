@@ -1,0 +1,26 @@
+# Translations for English
+
+# Error messages
+errors:
+  cannot_create_invoice_for_inactive_user: 'Cannot create invoice for inactive user'
+  user_not_found: 'User not found'
+  rate_limit_exceeded: 'Rate limit exceeded. %remaining% invoices remaining this hour.'
+
+# Email messages
+emails:
+  user_created:
+    subject: 'Account registered in the system'
+    body: 'Account registered in the system. Account activation takes up to 24h'
+  invoice_created:
+    subject: 'Invoice created'
+    body: 'An invoice has been issued for your account'
+
+# CLI messages
+cli:
+  user:
+    created: 'User %email% has been created with inactive status.'
+    activated: 'User %email% has been activated.'
+    inactive_users:
+      title: 'Inactive users:'
+      empty: 'No inactive users.'
+      list_item: '- %email%'

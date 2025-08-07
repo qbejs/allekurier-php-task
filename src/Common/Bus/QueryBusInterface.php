@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Common\Bus;
 
 interface QueryBusInterface
@@ -7,10 +9,7 @@ interface QueryBusInterface
     /**
      * Dispatches the given message.
      *
-     * @param object $message
-     * @param array  $stamps
-     *
-     * @return mixed
+     * @param array<string, mixed> $stamps
      */
-    public function dispatch($message, array $stamps = []);
+    public function dispatch(object $message, array $stamps = []): mixed;
 }

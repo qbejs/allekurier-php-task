@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Common\Bus;
 
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -14,10 +16,15 @@ class QueryBus implements QueryBusInterface
         $this->queryBus = $queryBus;
     }
 
-    public function dispatch($message, array $stamps = [])
+    public function dispatch(object $message, array $stamps = []): mixed
     {
         $envelope = $this->queryBus->dispatch($message);
 
-        return $envelope->last(HandledStamp::class)->getResult();
+        $handledStamp = $envelope->last(HandledStamp::class);
+        if (null === $handledStamp) {
+            throw new \RuntimeException('No handler found for message');
+        }
+
+        return $handledStamp->getResult();
     }
 }

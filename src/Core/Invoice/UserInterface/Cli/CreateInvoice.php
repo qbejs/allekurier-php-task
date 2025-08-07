@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Invoice\UserInterface\Cli;
 
 use App\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceCommand;
@@ -16,16 +18,16 @@ use Symfony\Component\Messenger\MessageBusInterface;
 )]
 class CreateInvoice extends Command
 {
-    public function __construct(private readonly MessageBusInterface $bus)
+    public function __construct(private readonly MessageBusInterface $messageBus)
     {
         parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->bus->dispatch(new CreateInvoiceCommand(
+        $this->messageBus->dispatch(new CreateInvoiceCommand(
             $input->getArgument('email'),
-            $input->getArgument('amount')
+            (int) $input->getArgument('amount')
         ));
 
         return Command::SUCCESS;

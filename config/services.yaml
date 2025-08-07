@@ -22,3 +22,16 @@ services:
 
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones
+  
+  # Query Bus configuration
+  App\Common\Bus\QueryBusInterface:
+    alias: App\Common\Bus\QueryBus
+
+  # Cache configuration
+  App\Core\User\Domain\Repository\UserRepositoryInterface:
+    alias: App\Core\User\Infrastructure\Cache\CachedUserRepository
+
+  # Rate Limiter configuration
+  App\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiter:
+    arguments:
+      $cache: '@cache.app'

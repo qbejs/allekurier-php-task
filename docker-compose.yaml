@@ -11,6 +11,7 @@ services:
       - '8011:80'
     depends_on:
       - ak_invoice_mysql
+      - ak_invoice_redis
     volumes:
       - .:/var/www/html
       - ./docker/build/php/conf.d/timezone.ini:/usr/local/etc/php/conf.d/timezone.ini
@@ -20,7 +21,7 @@ services:
 
   ak_invoice_mysql:
     container_name: ak_invoice_mysql
-    image: mysql:5.7
+    image: biarms/mysql:5.7
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql_mode="ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
     restart: always
     expose:
@@ -40,6 +41,21 @@ services:
     networks:
       - ak_invoice
 
+  ak_invoice_redis:
+    container_name: ak_invoice_redis
+    image: redis:6-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis123}
+    networks:
+      - ak_invoice
+
 networks:
   ak_invoice:
     name: ak_invoice
+
+volumes:
+  redis_data:

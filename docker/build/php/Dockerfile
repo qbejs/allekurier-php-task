@@ -29,6 +29,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install \
         pdo_mysql soap opcache calendar zip intl pcntl pdo_pgsql xsl gd bcmath imap
 
+# Instalacja Redis extension
+RUN pecl install redis && docker-php-ext-enable redis
 
 # xdebug
 #RUN pecl install xdebug && docker-php-ext-enable xdebug

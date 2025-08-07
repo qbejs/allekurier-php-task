@@ -1,77 +1,169 @@
 <?php
 
-namespace App\Tests\Unit\Core\Invoice\Application\Command\CreateInvoice;
+declare(strict_types=1);
+
+namespace Tests\Unit\Core\Invoice\Application\Command\CreateInvoice;
 
 use App\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceCommand;
 use App\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandler;
-use App\Core\Invoice\Domain\Exception\InvoiceException;
 use App\Core\Invoice\Domain\Invoice;
 use App\Core\Invoice\Domain\Repository\InvoiceRepositoryInterface;
-use App\Core\User\Domain\Exception\UserNotFoundException;
+use App\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiter;
 use App\Core\User\Domain\Repository\UserRepositoryInterface;
 use App\Core\User\Domain\User;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CreateInvoiceHandlerTest extends TestCase
 {
-    private UserRepositoryInterface|MockObject $userRepository;
-
-    private InvoiceRepositoryInterface|MockObject $invoiceRepository;
-
-    private CreateInvoiceHandler $handler;
+    private CreateInvoiceHandler $createInvoiceHandler;
+    private InvoiceRepositoryInterface&MockObject $invoiceRepository;
+    private UserRepositoryInterface&MockObject $userRepository;
+    private TranslatorInterface&MockObject $translator;
+    private InvoiceRateLimiter&MockObject $rateLimiter;
 
     protected function setUp(): void
     {
-        parent::setUp();
+        $this->invoiceRepository = $this->createMock(InvoiceRepositoryInterface::class);
+        $this->userRepository = $this->createMock(UserRepositoryInterface::class);
+        $this->translator = $this->createMock(TranslatorInterface::class);
+        $this->rateLimiter = $this->createMock(InvoiceRateLimiter::class);
 
-        $this->handler = new CreateInvoiceHandler(
-            $this->invoiceRepository = $this->createMock(
-                InvoiceRepositoryInterface::class
-            ),
-            $this->userRepository = $this->createMock(
-                UserRepositoryInterface::class
-            )
+        $this->createInvoiceHandler = new CreateInvoiceHandler(
+            $this->invoiceRepository,
+            $this->userRepository,
+            $this->translator,
+            $this->rateLimiter
         );
     }
 
-    public function test_handle_success(): void
+    public function testShouldCreateInvoiceForActiveUser(): void
     {
-        $user = $this->createMock(User::class);
+        // Given
+        $email = 'test@example.com';
+        $amount = 10000;
+        $activeUser = $this->createMock(User::class);
 
-        $invoice = new Invoice(
-            $user, 12500
-        );
+        $activeUser->method('isActive')->willReturn(true);
 
-        $this->userRepository->expects(self::once())
+        $this->userRepository
+            ->expects($this->once())
             ->method('getByEmail')
-            ->willReturn($user);
+            ->with($email)
+            ->willReturn($activeUser);
 
-        $this->invoiceRepository->expects(self::once())
+        $this->rateLimiter
+            ->expects($this->once())
+            ->method('canCreateInvoice')
+            ->with($email)
+            ->willReturn(true);
+
+        $this->rateLimiter
+            ->expects($this->once())
+            ->method('incrementInvoiceCount')
+            ->with($email);
+
+        $this->invoiceRepository
+            ->expects($this->once())
             ->method('save')
-            ->with($invoice);
+            ->with($this->isInstanceOf(Invoice::class));
 
-        $this->invoiceRepository->expects(self::once())
+        $this->invoiceRepository
+            ->expects($this->once())
             ->method('flush');
 
-        $this->handler->__invoke((new CreateInvoiceCommand('test@test.pl', 12500)));
+        // When
+        $this->createInvoiceHandler->__invoke(new CreateInvoiceCommand($email, $amount));
     }
 
-    public function test_handle_user_not_exists(): void
+    public function testShouldThrowExceptionForInactiveUser(): void
     {
-        $this->expectException(UserNotFoundException::class);
+        // Given
+        $email = 'test@example.com';
+        $amount = 10000;
+        $inactiveUser = $this->createMock(User::class);
+        $errorMessage = 'Nie można utworzyć faktury dla nieaktywnego użytkownika';
 
-        $this->userRepository->expects(self::once())
+        $inactiveUser->method('isActive')->willReturn(false);
+
+        $this->userRepository
+            ->expects($this->once())
             ->method('getByEmail')
-            ->willThrowException(new UserNotFoundException());
+            ->with($email)
+            ->willReturn($inactiveUser);
 
-        $this->handler->__invoke((new CreateInvoiceCommand('test@test.pl', 12500)));
+        $this->translator
+            ->expects($this->once())
+            ->method('trans')
+            ->with('errors.cannot_create_invoice_for_inactive_user')
+            ->willReturn($errorMessage);
+
+        $this->rateLimiter
+            ->expects($this->never())
+            ->method('canCreateInvoice');
+
+        $this->invoiceRepository
+            ->expects($this->never())
+            ->method('save');
+
+        $this->invoiceRepository
+            ->expects($this->never())
+            ->method('flush');
+
+        // When & Then
+        $this->expectException(\DomainException::class);
+        $this->expectExceptionMessage($errorMessage);
+
+        $this->createInvoiceHandler->__invoke(new CreateInvoiceCommand($email, $amount));
     }
 
-    public function test_handle_invoice_invalid_amount(): void
+    public function testShouldThrowExceptionForRateLimitExceeded(): void
     {
-        $this->expectException(InvoiceException::class);
+        // Given
+        $email = 'test@example.com';
+        $amount = 10000;
+        $activeUser = $this->createMock(User::class);
+        $errorMessage = 'Przekroczono limit tworzenia faktur. Pozostało 0 faktur w tej godzinie.';
 
-        $this->handler->__invoke((new CreateInvoiceCommand('test@test.pl', -5)));
+        $activeUser->method('isActive')->willReturn(true);
+
+        $this->userRepository
+            ->expects($this->once())
+            ->method('getByEmail')
+            ->with($email)
+            ->willReturn($activeUser);
+
+        $this->rateLimiter
+            ->expects($this->once())
+            ->method('canCreateInvoice')
+            ->with($email)
+            ->willReturn(false);
+
+        $this->rateLimiter
+            ->expects($this->once())
+            ->method('getRemainingInvoices')
+            ->with($email)
+            ->willReturn(0);
+
+        $this->translator
+            ->expects($this->once())
+            ->method('trans')
+            ->with('errors.rate_limit_exceeded', ['%remaining%' => 0])
+            ->willReturn($errorMessage);
+
+        $this->invoiceRepository
+            ->expects($this->never())
+            ->method('save');
+
+        $this->invoiceRepository
+            ->expects($this->never())
+            ->method('flush');
+
+        // When & Then
+        $this->expectException(\DomainException::class);
+        $this->expectExceptionMessage($errorMessage);
+
+        $this->createInvoiceHandler->__invoke(new CreateInvoiceCommand($email, $amount));
     }
 }

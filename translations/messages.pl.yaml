@@ -1,0 +1,26 @@
+# Tłumaczenia dla języka polskiego
+
+# Komunikaty błędów
+errors:
+  cannot_create_invoice_for_inactive_user: 'Nie można utworzyć faktury dla nieaktywnego użytkownika'
+  user_not_found: 'Użytkownik nie istnieje'
+  rate_limit_exceeded: 'Przekroczono limit tworzenia faktur. Pozostało %remaining% faktur w tej godzinie.'
+
+# Komunikaty email
+emails:
+  user_created:
+    subject: 'Zarejestrowano konto w systemie'
+    body: 'Zarejestrowano konto w systemie. Aktywacja konta trwa do 24h'
+  invoice_created:
+    subject: 'Utworzono fakturę'
+    body: 'Dla twojego konta została wystawiona faktura'
+
+# Komunikaty CLI
+cli:
+  user:
+    created: 'Użytkownik %email% został utworzony ze statusem nieaktywny.'
+    activated: 'Użytkownik %email% został aktywowany.'
+    inactive_users:
+      title: 'Nieaktywni użytkownicy:'
+      empty: 'Brak nieaktywnych użytkowników.'
+      list_item: '- %email%'

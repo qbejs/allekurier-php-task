@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Invoice\UserInterface\Cli;
 
 use App\Common\Bus\QueryBusInterface;
@@ -25,12 +27,13 @@ class GetInvoices extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $invoices = $this->bus->dispatch(new GetInvoicesByStatusAndAmountGreaterQuery(
-            $input->getArgument('amount')
+            $input->getArgument('status'),
+            (int) $input->getArgument('amount')
         ));
 
         /** @var InvoiceDTO $invoice */
         foreach ($invoices as $invoice) {
-            $output->writeln($invoice->id);
+            $output->writeln((string) $invoice->id);
         }
 
         return Command::SUCCESS;

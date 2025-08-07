@@ -1,0 +1,30 @@
+parameters:
+    # PHPStan level (0-9)
+    level: 8
+    
+    # Paths to analyse
+    paths:
+        - src
+        - tests
+    
+    # Exclude paths
+    excludePaths:
+        - src/Kernel.php
+    
+    # PHP version
+    phpVersion: 80200
+    
+    # Ignore errors (temporary)
+    ignoreErrors:
+        # Ignore Doctrine ID property warnings
+        - '#Property .*\$id \(int\|null\) is never assigned int#'
+        # Ignore comparison warnings in cache
+        - '#Comparison operation "<" between 0 and 10 is always true#'
+    
+    # Scan files
+    scanFiles:
+        - src/Kernel.php
+    
+    # Scan directories
+    scanDirectories:
+        - src

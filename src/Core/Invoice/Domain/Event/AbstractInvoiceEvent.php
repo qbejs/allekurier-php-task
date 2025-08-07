@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Invoice\Domain\Event;
 
 use App\Common\EventManager\EventInterface;

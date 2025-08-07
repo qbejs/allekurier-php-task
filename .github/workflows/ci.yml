@@ -145,6 +145,13 @@ jobs:
           php-version: '8.2'
           tools: composer:v2
 
+      - name: Create .env file
+        run: |
+          cp .env.example .env || echo "No .env.example found, creating basic .env"
+          echo "APP_ENV=test" >> .env
+          echo "DATABASE_URL=mysql://test:test@localhost:3306/test" >> .env
+          echo "MESSENGER_TRANSPORT_DSN=doctrine://default" >> .env
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-dev
 
@@ -161,6 +168,13 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Create .env file for Docker
+        run: |
+          cp .env.example .env || echo "No .env.example found, creating basic .env"
+          echo "APP_ENV=test" >> .env
+          echo "DATABASE_URL=mysql://test:test@localhost:3306/test" >> .env
+          echo "MESSENGER_TRANSPORT_DSN=doctrine://default" >> .env
 
       - name: Build Docker image
         run: |

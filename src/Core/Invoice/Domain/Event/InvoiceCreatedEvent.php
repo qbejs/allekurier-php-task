@@ -8,7 +8,6 @@ class InvoiceCreatedEvent extends AbstractInvoiceEvent
 {
     public function getUserEmail(): string
     {
-        // $this->invoice->getUser()->getEmail();
-        return '';
+        return $this->invoice->getUser()->getEmail();
     }
 }

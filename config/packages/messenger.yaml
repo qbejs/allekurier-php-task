@@ -13,12 +13,19 @@ framework:
                     max_retries: 3
                     multiplier: 2
             failed: 'doctrine://default?queue_name=failed'
-            # sync: 'sync://'
+            sync: 'sync://'
 
         routing:
-#            Symfony\Component\Mailer\Messenger\SendEmailMessage: async
-#            Symfony\Component\Notifier\Message\ChatMessage: async
-#            Symfony\Component\Notifier\Message\SmsMessage: async
+            # Domain Events - async
+            App\Core\User\Domain\Event\UserCreatedEvent: async
+            App\Core\Invoice\Domain\Event\InvoiceCreatedEvent: async
+            App\Core\Invoice\Domain\Event\InvoiceCanceledEvent: async
 
-            # Route your messages to the transports
-            # 'App\Message\YourMessage': async
+            # Commands - sync
+            App\Core\User\Application\Command\CreateUser\CreateUserCommand: sync
+            App\Core\User\Application\Command\ActivateUser\ActivateUserCommand: sync
+            App\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceCommand: sync
+
+            # Queries - sync
+            App\Core\User\Application\Query\GetInactiveUsersEmails\GetInactiveUsersEmailsQuery: sync
+            App\Core\Invoice\Application\Query\GetInvoicesByStatusAndAmountGreater\GetInvoicesByStatusAndAmountGreaterQuery: sync

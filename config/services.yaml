@@ -31,6 +31,14 @@ services:
   App\Core\User\Domain\Repository\UserRepositoryInterface:
     alias: App\Core\User\Infrastructure\Cache\CachedUserRepository
 
+  # Mailer configuration
+  App\Common\Mailer\MailerInterface:
+    alias: App\Common\Mailer\SMPTMailer
+
+  # Notification configuration
+  App\Core\Invoice\Domain\Notification\NotificationInterface:
+    alias: App\Core\Invoice\Infrastructure\Notification\Email\Mailer
+
   # Rate Limiter configuration
   App\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiter:
     arguments:

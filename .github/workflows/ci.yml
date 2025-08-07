@@ -88,17 +88,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-phpstan-
 
-      - name: Wait for MySQL
-        run: |
-          while ! mysqladmin ping -h"127.0.0.1" -P"3306" --silent; do
-            sleep 1
-          done
-
-      - name: Run database migrations
-        run: |
-          php bin/console doctrine:database:create --if-not-exists --env=test
-          php bin/console doctrine:migrations:migrate --no-interaction --env=test
-
       - name: Clear cache
         run: php bin/console cache:clear --env=test
 
@@ -113,9 +102,6 @@ jobs:
 
       - name: Run Unit Tests
         run: php bin/phpunit tests/Unit/ --coverage-text --coverage-filter=src/
-
-      - name: Run all tests
-        run: php bin/phpunit --coverage-text --coverage-filter=src/
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3

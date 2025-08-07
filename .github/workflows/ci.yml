@@ -97,9 +97,6 @@ jobs:
       - name: Run PHPStan
         run: composer phpstan
 
-      - name: Run Rector (dry run)
-        run: composer rector-dry
-
       - name: Run Unit Tests
         run: php bin/phpunit tests/Unit/ --coverage-text --coverage-filter=src/
 

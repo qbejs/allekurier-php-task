@@ -52,6 +52,14 @@ jobs:
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
 
+      - name: Create .env file for tests
+        run: |
+          cp .env.example .env || echo "No .env.example found, creating basic .env"
+          echo "APP_ENV=test" >> .env
+          echo "DATABASE_URL=mysql://test_user:test_password@127.0.0.1:3306/test_db" >> .env
+          echo "MESSENGER_TRANSPORT_DSN=doctrine://default" >> .env
+          echo "REDIS_PASSWORD=redis123" >> .env
+
       - name: Cache Composer packages
         id: composer-cache
         uses: actions/cache@v3
@@ -79,14 +87,6 @@ jobs:
           key: ${{ runner.os }}-phpstan-${{ hashFiles('**/phpstan.dist.neon') }}
           restore-keys: |
             ${{ runner.os }}-phpstan-
-
-      - name: Create .env file for tests
-        run: |
-          cp .env.example .env || echo "No .env.example found, creating basic .env"
-          echo "APP_ENV=test" >> .env
-          echo "DATABASE_URL=mysql://test_user:test_password@127.0.0.1:3306/test_db" >> .env
-          echo "MESSENGER_TRANSPORT_DSN=doctrine://default" >> .env
-          echo "REDIS_PASSWORD=redis123" >> .env
 
       - name: Wait for MySQL
         run: |
@@ -168,13 +168,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Create .env file for Docker
-        run: |
-          cp .env.example .env || echo "No .env.example found, creating basic .env"
-          echo "APP_ENV=test" >> .env
-          echo "DATABASE_URL=mysql://test:test@localhost:3306/test" >> .env
-          echo "MESSENGER_TRANSPORT_DSN=doctrine://default" >> .env
 
       - name: Build Docker image
         run: |

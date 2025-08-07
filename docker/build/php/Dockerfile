@@ -50,6 +50,12 @@ RUN chmod +x /usr/bin/wait-for-it
 
 WORKDIR /var/www/html
 
+# Create .env file for Docker build
+RUN if [ -f .env.example ]; then cp .env.example .env; else echo "APP_ENV=dev" > .env; fi && \
+    echo "APP_DEBUG=1" >> .env && \
+    echo "DATABASE_URL=mysql://test:test@localhost:3306/test" >> .env && \
+    echo "MESSENGER_TRANSPORT_DSN=doctrine://default" >> .env
+
 # Set the locale
 #RUN locale-gen en_US.UTF-8
 #ENV LANG en_US.UTF-8

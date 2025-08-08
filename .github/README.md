@@ -1,5 +1,7 @@
 # Allekurier-php-task 
 
+[![codecov](https://codecov.io/gh/jakubskowron/allekurier-php-task/branch/main/graph/badge.svg)](https://codecov.io/gh/jakubskowron/allekurier-php-task)
+
 ### 1. CI/CD Pipeline
 
 **Triggers:**

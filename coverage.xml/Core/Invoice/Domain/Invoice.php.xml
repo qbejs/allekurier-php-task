@@ -1,0 +1,576 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <file name="Invoice.php" path="/Core/Invoice/Domain">
+    <totals>
+      <lines total="89" comments="23" code="66" executable="12" executed="12" percent="100.00"/>
+      <methods count="6" tested="6" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="App\Core\Invoice\Domain\Invoice" start="20" executable="12" executed="12" crap="7">
+      <namespace name="App\Core\Invoice\Domain"/>
+      <method name="__construct" signature="__construct(App\Core\User\Domain\User $user, int $amount)" start="43" end="61" crap="2" executable="6" executed="6" coverage="100"/>
+      <method name="getId" signature="getId(): ?int" start="63" end="66" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="cancel" signature="cancel(): void" start="68" end="72" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getUser" signature="getUser(): App\Core\User\Domain\User" start="74" end="77" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAmount" signature="getAmount(): int" start="79" end="82" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getStatus" signature="getStatus(): App\Core\Invoice\Domain\Status\InvoiceStatus" start="84" end="87" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="52">
+        <covered by="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldCreateInvoiceForActiveUser"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldThrowExceptionForInvalidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldThrowExceptionForNegativeAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldPullEvents"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+      <line nr="53">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldThrowExceptionForInvalidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldThrowExceptionForNegativeAmount"/>
+      </line>
+      <line nr="56">
+        <covered by="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldCreateInvoiceForActiveUser"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldPullEvents"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+      <line nr="57">
+        <covered by="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldCreateInvoiceForActiveUser"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldPullEvents"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+      <line nr="58">
+        <covered by="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldCreateInvoiceForActiveUser"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldPullEvents"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+      <line nr="60">
+        <covered by="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldCreateInvoiceForActiveUser"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldPullEvents"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+      <line nr="65">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId"/>
+      </line>
+      <line nr="70">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+      </line>
+      <line nr="71">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+      </line>
+      <line nr="76">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+      </line>
+      <line nr="81">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+      <line nr="86">
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice"/>
+        <covered by="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_DECLARE">declare</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strict_types</token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Core\Invoice\Domain</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="6"/>
+      <line no="7">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Common\EventManager\EventsCollectorTrait</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="8">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Core\Invoice\Domain\Event\InvoiceCanceledEvent</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="9">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Core\Invoice\Domain\Event\InvoiceCreatedEvent</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="10">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Core\Invoice\Domain\Exception\InvoiceException</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="11">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Core\Invoice\Domain\Status\InvoiceStatus</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="12">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Core\User\Domain\User</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="13">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Doctrine\ORM\Mapping</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AS">as</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ORM</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="14"/>
+      <line no="15">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="16">
+        <token name="T_DOC_COMMENT"> * @ORM\Entity</token>
+      </line>
+      <line no="17">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="18">
+        <token name="T_DOC_COMMENT"> * @ORM\Table(name="invoices")</token>
+      </line>
+      <line no="19">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="20">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Invoice</token>
+      </line>
+      <line no="21">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="22">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">EventsCollectorTrait</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="23"/>
+      <line no="24">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="25">
+        <token name="T_DOC_COMMENT">     * @ORM\Id</token>
+      </line>
+      <line no="26">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT">     * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=false)</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT">     * @ORM\GeneratedValue(strategy="AUTO")</token>
+      </line>
+      <line no="30">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="31">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_QUESTION_MARK">?</token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="32"/>
+      <line no="33">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="34">
+        <token name="T_DOC_COMMENT">     * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=false)</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="36">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="37"/>
+      <line no="38">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @ORM\Column(type="string", length=16, nullable=false, enumType="\App\Core\Invoice\Domain\Status\InvoiceStatus")</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="41">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceStatus</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$status</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="42"/>
+      <line no="43">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="44">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="45">
+        <token name="T_DOC_COMMENT">         * @ORM\ManyToOne(targetEntity="App\Core\User\Domain\User", cascade={"persist"})</token>
+      </line>
+      <line no="46">
+        <token name="T_DOC_COMMENT">         *</token>
+      </line>
+      <line no="47">
+        <token name="T_DOC_COMMENT">         * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)</token>
+      </line>
+      <line no="48">
+        <token name="T_DOC_COMMENT">         */</token>
+      </line>
+      <line no="49">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">User</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$user</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="50">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$amount</token>
+      </line>
+      <line no="51">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="52">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$amount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_SMALLER_OR_EQUAL">&lt;=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="53">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_THROW">throw</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceException</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'Kwota faktury musi by&#x107; wi&#x119;ksza od 0'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="54">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="55"/>
+      <line no="56">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">id</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="57">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">amount</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="58">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">status</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceStatus</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_NEW">NEW</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="59"/>
+      <line no="60">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">record</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceCreatedEvent</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="61">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="62"/>
+      <line no="63">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getId</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_QUESTION_MARK">?</token>
+        <token name="T_STRING">int</token>
+      </line>
+      <line no="64">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="65">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="66">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="67"/>
+      <line no="68">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">cancel</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="69">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="70">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">status</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceStatus</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">CANCELED</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="71">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">record</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceCanceledEvent</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="72">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="73"/>
+      <line no="74">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getUser</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">User</token>
+      </line>
+      <line no="75">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="76">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">user</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="77">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="78"/>
+      <line no="79">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getAmount</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">int</token>
+      </line>
+      <line no="80">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="81">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">amount</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="82">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="83"/>
+      <line no="84">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getStatus</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">InvoiceStatus</token>
+      </line>
+      <line no="85">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="86">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">status</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="87">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="88">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="89"/>
+    </source>
+  </file>
+</phpunit>

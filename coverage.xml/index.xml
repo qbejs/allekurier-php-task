@@ -1,0 +1,833 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <build time="Fri Aug 8 7:23:10 UTC 2025" phpunit="9.6.23" coverage="9.2.32">
+    <runtime name="PHP" version="8.1.30" url="https://secure.php.net/"/>
+    <driver name="xdebug" version="3.3.1"/>
+  </build>
+  <project source="/Users/jakubskowron/Work/allekurier-php-task/src">
+    <tests>
+      <test name="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldCreateInvoiceForActiveUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldThrowExceptionForInactiveUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceHandlerTest::testShouldThrowExceptionForRateLimitExceeded" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\EventListener\SendEmailInvoiceCreatedEventSubscriberListenerTest::testShouldSendEmailWhenInvoiceCreated" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\EventListener\SendEmailInvoiceCreatedEventSubscriberListenerTest::testShouldSubscribeToInvoiceCreatedEvent" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\EventListener\SendEmailInvoiceCreatedEventSubscriberListenerTest::testShouldSendEmailWithDifferentInvoice" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\Query\GetInvoicesByStatusAndAmountGreater\GetInvoicesByStatusAndAmountGreaterHandlerTest::testShouldReturnInvoicesForGivenStatusAndAmount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\Query\GetInvoicesByStatusAndAmountGreater\GetInvoicesByStatusAndAmountGreaterHandlerTest::testShouldReturnEmptyArrayWhenNoInvoicesFound" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Application\Query\GetInvoicesByStatusAndAmountGreater\GetInvoicesByStatusAndAmountGreaterHandlerTest::testShouldHandleNullInvoiceId" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithValidAmount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldThrowExceptionForInvalidAmount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldThrowExceptionForNegativeAmount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCancelInvoice" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldSetId" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldPullEvents" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Domain\InvoiceTest::testShouldCreateInvoiceWithLargeAmount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiterTest::testShouldAllowInvoiceCreationWhenUnderLimit" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiterTest::testShouldAllowInvoiceCreationForNewUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiterTest::testShouldIncrementInvoiceCount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiterTest::testShouldGetRemainingInvoicesForNewUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiterTest::testShouldResetLimit" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\Invoice\Infrastructure\RateLimiter\InvoiceRateLimiterTest::testShouldHandleNullCount" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Command\ActivateUser\ActivateUserHandlerTest::testShouldActivateUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Command\ActivateUser\ActivateUserHandlerTest::testShouldThrowExceptionWhenUserNotFound" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Command\ActivateUser\ActivateUserHandlerTest::testShouldActivateUserWithDifferentEmail" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Command\CreateUser\CreateUserHandlerTest::testShouldCreateUserWithInactiveStatus" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Command\CreateUser\CreateUserHandlerTest::testShouldCreateUserWithDifferentEmail" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\EventListener\SendEmailUserCreatedEventSubscriberListenerTest::testShouldSendEmailWhenUserCreated" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\EventListener\SendEmailUserCreatedEventSubscriberListenerTest::testShouldSubscribeToUserCreatedEvent" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\EventListener\SendEmailUserCreatedEventSubscriberListenerTest::testShouldSendEmailWithDifferentUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Query\GetInactiveUsersEmails\GetInactiveUsersEmailsHandlerTest::testShouldReturnInactiveUsersEmails" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Query\GetInactiveUsersEmails\GetInactiveUsersEmailsHandlerTest::testShouldReturnEmptyArrayWhenNoInactiveUsers" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Application\Query\GetInactiveUsersEmails\GetInactiveUsersEmailsHandlerTest::testShouldReturnSingleEmail" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Domain\UserTest::testShouldCreateUserWithInactiveStatus" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Domain\UserTest::testShouldCreateUserWithActiveStatus" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Domain\UserTest::testShouldActivateUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Domain\UserTest::testShouldDeactivateUser" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Domain\UserTest::testShouldPullEvents" size="unknown" result="0" status="PASSED"/>
+      <test name="Tests\Unit\Core\User\Domain\UserTest::testShouldSetId" size="unknown" result="0" status="PASSED"/>
+    </tests>
+    <directory name="/">
+      <totals>
+        <lines total="1357" comments="96" code="1261" executable="252" executed="116" percent="46.03"/>
+        <methods count="82" tested="45" percent="54.88"/>
+        <functions count="0" tested="0" percent="0"/>
+        <classes count="31" tested="18" percent="58.06"/>
+        <traits count="1" tested="0" percent="0.00"/>
+      </totals>
+      <directory name="Common">
+        <totals>
+          <lines total="130" comments="18" code="112" executable="14" executed="5" percent="35.71"/>
+          <methods count="7" tested="3" percent="42.86"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="2" tested="0" percent="0.00"/>
+          <traits count="1" tested="0" percent="0.00"/>
+        </totals>
+        <directory name="Bus">
+          <totals>
+            <lines total="47" comments="5" code="42" executable="6" executed="0" percent="0.00"/>
+            <methods count="2" tested="0" percent="0.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <file name="QueryBus.php" href="Common/Bus/QueryBus.php.xml">
+            <totals>
+              <lines total="31" comments="0" code="31" executable="6" executed="0" percent="0.00"/>
+              <methods count="2" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="QueryBusInterface.php" href="Common/Bus/QueryBusInterface.php.xml">
+            <totals>
+              <lines total="16" comments="5" code="11" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="EventManager">
+          <totals>
+            <lines total="58" comments="12" code="46" executable="7" executed="5" percent="71.43"/>
+            <methods count="4" tested="3" percent="75.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="1" tested="0" percent="0.00"/>
+          </totals>
+          <file name="EventInterface.php" href="Common/EventManager/EventInterface.php.xml">
+            <totals>
+              <lines total="10" comments="0" code="10" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="EventsCollectorTrait.php" href="Common/EventManager/EventsCollectorTrait.php.xml">
+            <totals>
+              <lines total="48" comments="12" code="36" executable="7" executed="5" percent="71.43"/>
+              <methods count="4" tested="3" percent="75.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="1" tested="0" percent="0.00"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="Mailer">
+          <totals>
+            <lines total="25" comments="1" code="24" executable="1" executed="0" percent="0.00"/>
+            <methods count="1" tested="0" percent="0.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <file name="MailerInterface.php" href="Common/Mailer/MailerInterface.php.xml">
+            <totals>
+              <lines total="11" comments="0" code="11" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="SMPTMailer.php" href="Common/Mailer/SMPTMailer.php.xml">
+            <totals>
+              <lines total="14" comments="1" code="13" executable="1" executed="0" percent="0.00"/>
+              <methods count="1" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+      </directory>
+      <directory name="Core">
+        <totals>
+          <lines total="1213" comments="78" code="1135" executable="238" executed="111" percent="46.64"/>
+          <methods count="75" tested="42" percent="56.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="29" tested="18" percent="62.07"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <directory name="Invoice">
+          <totals>
+            <lines total="592" comments="34" code="558" executable="114" executed="76" percent="66.67"/>
+            <methods count="36" tested="22" percent="61.11"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="15" tested="9" percent="60.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="Application">
+            <totals>
+              <lines total="180" comments="5" code="175" executable="42" executed="42" percent="100.00"/>
+              <methods count="10" tested="10" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="6" tested="6" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Command">
+              <totals>
+                <lines total="66" comments="2" code="64" executable="15" executed="15" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="2" tested="2" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <directory name="CreateInvoice">
+                <totals>
+                  <lines total="66" comments="2" code="64" executable="15" executed="15" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="2" tested="2" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+                <file name="CreateInvoiceCommand.php" href="Core/Invoice/Application/Command/CreateInvoice/CreateInvoiceCommand.php.xml">
+                  <totals>
+                    <lines total="15" comments="0" code="15" executable="1" executed="1" percent="100.00"/>
+                    <methods count="1" tested="1" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+                <file name="CreateInvoiceHandler.php" href="Core/Invoice/Application/Command/CreateInvoice/CreateInvoiceHandler.php.xml">
+                  <totals>
+                    <lines total="51" comments="2" code="49" executable="14" executed="14" percent="100.00"/>
+                    <methods count="2" tested="2" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+              </directory>
+            </directory>
+            <directory name="DTO">
+              <totals>
+                <lines total="16" comments="0" code="16" executable="1" executed="1" percent="100.00"/>
+                <methods count="1" tested="1" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="InvoiceDTO.php" href="Core/Invoice/Application/DTO/InvoiceDTO.php.xml">
+                <totals>
+                  <lines total="16" comments="0" code="16" executable="1" executed="1" percent="100.00"/>
+                  <methods count="1" tested="1" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="1" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="EventListener">
+              <totals>
+                <lines total="36" comments="0" code="36" executable="9" executed="9" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="SendEmailInvoiceCreatedEventSubscriberListener.php" href="Core/Invoice/Application/EventListener/SendEmailInvoiceCreatedEventSubscriberListener.php.xml">
+                <totals>
+                  <lines total="36" comments="0" code="36" executable="9" executed="9" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="1" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Query">
+              <totals>
+                <lines total="62" comments="3" code="59" executable="17" executed="17" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="2" tested="2" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <directory name="GetInvoicesByStatusAndAmountGreater">
+                <totals>
+                  <lines total="62" comments="3" code="59" executable="17" executed="17" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="2" tested="2" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+                <file name="GetInvoicesByStatusAndAmountGreaterHandler.php" href="Core/Invoice/Application/Query/GetInvoicesByStatusAndAmountGreater/GetInvoicesByStatusAndAmountGreaterHandler.php.xml">
+                  <totals>
+                    <lines total="47" comments="3" code="44" executable="16" executed="16" percent="100.00"/>
+                    <methods count="2" tested="2" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+                <file name="GetInvoicesByStatusAndAmountGreaterQuery.php" href="Core/Invoice/Application/Query/GetInvoicesByStatusAndAmountGreater/GetInvoicesByStatusAndAmountGreaterQuery.php.xml">
+                  <totals>
+                    <lines total="15" comments="0" code="15" executable="1" executed="1" percent="100.00"/>
+                    <methods count="1" tested="1" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+              </directory>
+            </directory>
+          </directory>
+          <directory name="Domain">
+            <totals>
+              <lines total="188" comments="26" code="162" executable="15" executed="13" percent="86.67"/>
+              <methods count="9" tested="7" percent="77.78"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="4" tested="2" percent="50.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Event">
+              <totals>
+                <lines total="44" comments="0" code="44" executable="3" executed="1" percent="33.33"/>
+                <methods count="3" tested="1" percent="33.33"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="3" tested="1" percent="33.33"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="AbstractInvoiceEvent.php" href="Core/Invoice/Domain/Event/AbstractInvoiceEvent.php.xml">
+                <totals>
+                  <lines total="16" comments="0" code="16" executable="1" executed="1" percent="100.00"/>
+                  <methods count="1" tested="1" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="1" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="InvoiceCanceledEvent.php" href="Core/Invoice/Domain/Event/InvoiceCanceledEvent.php.xml">
+                <totals>
+                  <lines total="14" comments="0" code="14" executable="1" executed="0" percent="0.00"/>
+                  <methods count="1" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="InvoiceCreatedEvent.php" href="Core/Invoice/Domain/Event/InvoiceCreatedEvent.php.xml">
+                <totals>
+                  <lines total="14" comments="0" code="14" executable="1" executed="0" percent="0.00"/>
+                  <methods count="1" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Exception">
+              <totals>
+                <lines total="10" comments="0" code="10" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="InvoiceException.php" href="Core/Invoice/Domain/Exception/InvoiceException.php.xml">
+                <totals>
+                  <lines total="10" comments="0" code="10" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Notification">
+              <totals>
+                <lines total="11" comments="0" code="11" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="NotificationInterface.php" href="Core/Invoice/Domain/Notification/NotificationInterface.php.xml">
+                <totals>
+                  <lines total="11" comments="0" code="11" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Repository">
+              <totals>
+                <lines total="21" comments="3" code="18" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="InvoiceRepositoryInterface.php" href="Core/Invoice/Domain/Repository/InvoiceRepositoryInterface.php.xml">
+                <totals>
+                  <lines total="21" comments="3" code="18" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Status">
+              <totals>
+                <lines total="13" comments="0" code="13" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="InvoiceStatus.php" href="Core/Invoice/Domain/Status/InvoiceStatus.php.xml">
+                <totals>
+                  <lines total="13" comments="0" code="13" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <file name="Invoice.php" href="Core/Invoice/Domain/Invoice.php.xml">
+              <totals>
+                <lines total="89" comments="23" code="66" executable="12" executed="12" percent="100.00"/>
+                <methods count="6" tested="6" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <directory name="Infrastructure">
+            <totals>
+              <lines total="134" comments="2" code="132" executable="39" executed="21" percent="53.85"/>
+              <methods count="11" tested="5" percent="45.45"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="3" tested="1" percent="33.33"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Notification">
+              <totals>
+                <lines total="21" comments="0" code="21" executable="2" executed="0" percent="0.00"/>
+                <methods count="2" tested="0" percent="0.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <directory name="Email">
+                <totals>
+                  <lines total="21" comments="0" code="21" executable="2" executed="0" percent="0.00"/>
+                  <methods count="2" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+                <file name="Mailer.php" href="Core/Invoice/Infrastructure/Notification/Email/Mailer.php.xml">
+                  <totals>
+                    <lines total="21" comments="0" code="21" executable="2" executed="0" percent="0.00"/>
+                    <methods count="2" tested="0" percent="0.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="0" percent="0.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+              </directory>
+            </directory>
+            <directory name="Persistance">
+              <totals>
+                <lines total="50" comments="0" code="50" executable="16" executed="0" percent="0.00"/>
+                <methods count="4" tested="0" percent="0.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="DoctrineInvoiceRepository.php" href="Core/Invoice/Infrastructure/Persistance/DoctrineInvoiceRepository.php.xml">
+                <totals>
+                  <lines total="50" comments="0" code="50" executable="16" executed="0" percent="0.00"/>
+                  <methods count="4" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="RateLimiter">
+              <totals>
+                <lines total="63" comments="2" code="61" executable="21" executed="21" percent="100.00"/>
+                <methods count="5" tested="5" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="InvoiceRateLimiter.php" href="Core/Invoice/Infrastructure/RateLimiter/InvoiceRateLimiter.php.xml">
+                <totals>
+                  <lines total="63" comments="2" code="61" executable="21" executed="21" percent="100.00"/>
+                  <methods count="5" tested="5" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="1" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+          </directory>
+          <directory name="UserInterface">
+            <totals>
+              <lines total="90" comments="1" code="89" executable="18" executed="0" percent="0.00"/>
+              <methods count="6" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="2" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Cli">
+              <totals>
+                <lines total="90" comments="1" code="89" executable="18" executed="0" percent="0.00"/>
+                <methods count="6" tested="0" percent="0.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="2" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="CreateInvoice.php" href="Core/Invoice/UserInterface/Cli/CreateInvoice.php.xml">
+                <totals>
+                  <lines total="42" comments="0" code="42" executable="8" executed="0" percent="0.00"/>
+                  <methods count="3" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="GetInvoices.php" href="Core/Invoice/UserInterface/Cli/GetInvoices.php.xml">
+                <totals>
+                  <lines total="48" comments="1" code="47" executable="10" executed="0" percent="0.00"/>
+                  <methods count="3" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+          </directory>
+        </directory>
+        <directory name="User">
+          <totals>
+            <lines total="621" comments="44" code="577" executable="124" executed="35" percent="28.23"/>
+            <methods count="39" tested="20" percent="51.28"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="14" tested="9" percent="64.29"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="Application">
+            <totals>
+              <lines total="160" comments="5" code="155" executable="24" executed="24" percent="100.00"/>
+              <methods count="12" tested="12" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="7" tested="7" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Command">
+              <totals>
+                <lines total="82" comments="1" code="81" executable="11" executed="11" percent="100.00"/>
+                <methods count="6" tested="6" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="4" tested="4" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <directory name="ActivateUser">
+                <totals>
+                  <lines total="41" comments="0" code="41" executable="6" executed="6" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="2" tested="2" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+                <file name="ActivateUserCommand.php" href="Core/User/Application/Command/ActivateUser/ActivateUserCommand.php.xml">
+                  <totals>
+                    <lines total="14" comments="0" code="14" executable="1" executed="1" percent="100.00"/>
+                    <methods count="1" tested="1" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+                <file name="ActivateUserHandler.php" href="Core/User/Application/Command/ActivateUser/ActivateUserHandler.php.xml">
+                  <totals>
+                    <lines total="27" comments="0" code="27" executable="5" executed="5" percent="100.00"/>
+                    <methods count="2" tested="2" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+              </directory>
+              <directory name="CreateUser">
+                <totals>
+                  <lines total="41" comments="1" code="40" executable="5" executed="5" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="2" tested="2" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+                <file name="CreateUserCommand.php" href="Core/User/Application/Command/CreateUser/CreateUserCommand.php.xml">
+                  <totals>
+                    <lines total="14" comments="0" code="14" executable="1" executed="1" percent="100.00"/>
+                    <methods count="1" tested="1" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+                <file name="CreateUserHandler.php" href="Core/User/Application/Command/CreateUser/CreateUserHandler.php.xml">
+                  <totals>
+                    <lines total="27" comments="1" code="26" executable="4" executed="4" percent="100.00"/>
+                    <methods count="2" tested="2" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+              </directory>
+            </directory>
+            <directory name="EventListener">
+              <totals>
+                <lines total="38" comments="0" code="38" executable="10" executed="10" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="SendEmailUserCreatedEventSubscriberListener.php" href="Core/User/Application/EventListener/SendEmailUserCreatedEventSubscriberListener.php.xml">
+                <totals>
+                  <lines total="38" comments="0" code="38" executable="10" executed="10" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="1" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Query">
+              <totals>
+                <lines total="40" comments="4" code="36" executable="3" executed="3" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="2" tested="2" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <directory name="GetInactiveUsersEmails">
+                <totals>
+                  <lines total="40" comments="4" code="36" executable="3" executed="3" percent="100.00"/>
+                  <methods count="3" tested="3" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="2" tested="2" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+                <file name="GetInactiveUsersEmailsHandler.php" href="Core/User/Application/Query/GetInactiveUsersEmails/GetInactiveUsersEmailsHandler.php.xml">
+                  <totals>
+                    <lines total="26" comments="3" code="23" executable="2" executed="2" percent="100.00"/>
+                    <methods count="2" tested="2" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+                <file name="GetInactiveUsersEmailsQuery.php" href="Core/User/Application/Query/GetInactiveUsersEmails/GetInactiveUsersEmailsQuery.php.xml">
+                  <totals>
+                    <lines total="14" comments="1" code="13" executable="1" executed="1" percent="100.00"/>
+                    <methods count="1" tested="1" percent="100.00"/>
+                    <functions count="0" tested="0" percent="0"/>
+                    <classes count="1" tested="1" percent="100.00"/>
+                    <traits count="0" tested="0" percent="0"/>
+                  </totals>
+                </file>
+              </directory>
+            </directory>
+          </directory>
+          <directory name="Domain">
+            <totals>
+              <lines total="141" comments="24" code="117" executable="11" executed="11" percent="100.00"/>
+              <methods count="8" tested="8" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="2" tested="2" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Event">
+              <totals>
+                <lines total="22" comments="0" code="22" executable="2" executed="2" percent="100.00"/>
+                <methods count="2" tested="2" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="UserCreatedEvent.php" href="Core/User/Domain/Event/UserCreatedEvent.php.xml">
+                <totals>
+                  <lines total="22" comments="0" code="22" executable="2" executed="2" percent="100.00"/>
+                  <methods count="2" tested="2" percent="100.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="1" percent="100.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Exception">
+              <totals>
+                <lines total="20" comments="0" code="20" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="UserException.php" href="Core/User/Domain/Exception/UserException.php.xml">
+                <totals>
+                  <lines total="10" comments="0" code="10" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="UserNotFoundException.php" href="Core/User/Domain/Exception/UserNotFoundException.php.xml">
+                <totals>
+                  <lines total="10" comments="0" code="10" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Repository">
+              <totals>
+                <lines total="26" comments="6" code="20" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="UserRepositoryInterface.php" href="Core/User/Domain/Repository/UserRepositoryInterface.php.xml">
+                <totals>
+                  <lines total="26" comments="6" code="20" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <file name="User.php" href="Core/User/Domain/User.php.xml">
+              <totals>
+                <lines total="73" comments="18" code="55" executable="9" executed="9" percent="100.00"/>
+                <methods count="6" tested="6" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <directory name="Infrastructure">
+            <totals>
+              <lines total="178" comments="15" code="163" executable="62" executed="0" percent="0.00"/>
+              <methods count="11" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="2" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Cache">
+              <totals>
+                <lines total="104" comments="9" code="95" executable="37" executed="0" percent="0.00"/>
+                <methods count="6" tested="0" percent="0.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="CachedUserRepository.php" href="Core/User/Infrastructure/Cache/CachedUserRepository.php.xml">
+                <totals>
+                  <lines total="104" comments="9" code="95" executable="37" executed="0" percent="0.00"/>
+                  <methods count="6" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <directory name="Persistance">
+              <totals>
+                <lines total="74" comments="6" code="68" executable="25" executed="0" percent="0.00"/>
+                <methods count="5" tested="0" percent="0.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="DoctrineUserRepository.php" href="Core/User/Infrastructure/Persistance/DoctrineUserRepository.php.xml">
+                <totals>
+                  <lines total="74" comments="6" code="68" executable="25" executed="0" percent="0.00"/>
+                  <methods count="5" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+          </directory>
+          <directory name="UserInterface">
+            <totals>
+              <lines total="142" comments="0" code="142" executable="27" executed="0" percent="0.00"/>
+              <methods count="8" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="3" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Cli">
+              <totals>
+                <lines total="142" comments="0" code="142" executable="27" executed="0" percent="0.00"/>
+                <methods count="8" tested="0" percent="0.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="3" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="ActivateUser.php" href="Core/User/UserInterface/Cli/ActivateUser.php.xml">
+                <totals>
+                  <lines total="47" comments="0" code="47" executable="8" executed="0" percent="0.00"/>
+                  <methods count="3" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="CreateUser.php" href="Core/User/UserInterface/Cli/CreateUser.php.xml">
+                <totals>
+                  <lines total="47" comments="0" code="47" executable="8" executed="0" percent="0.00"/>
+                  <methods count="3" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="GetInactiveUsersEmails.php" href="Core/User/UserInterface/Cli/GetInactiveUsersEmails.php.xml">
+                <totals>
+                  <lines total="48" comments="0" code="48" executable="11" executed="0" percent="0.00"/>
+                  <methods count="2" tested="0" percent="0.00"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="1" tested="0" percent="0.00"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+          </directory>
+        </directory>
+      </directory>
+      <file name="Kernel.php" href="Kernel.php.xml">
+        <totals>
+          <lines total="14" comments="0" code="14" executable="0" executed="0" percent="0"/>
+          <methods count="0" tested="0" percent="0"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="0" tested="0" percent="0"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+      </file>
+    </directory>
+  </project>
+</phpunit>

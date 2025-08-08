@@ -98,7 +98,7 @@ jobs:
         run: composer phpstan
 
       - name: Run Unit Tests
-        run: php bin/phpunit tests/Unit/ --coverage-xml=coverage.xml --coverage-filter=src/
+        run: php bin/phpunit tests/Unit/ --log-junit --coverage-xml=coverage.xml --coverage-filter=src/
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3

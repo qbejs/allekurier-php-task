@@ -48,3 +48,23 @@ docker exec -it {CONTAINER ID} bash
 ```
 bin/phpunit tests/Unit/
 ```
+
+## GitHub Actions CI/CD
+
+Projekt zawiera konfigurację GitHub Actions z automatycznymi testami, analizą statyczną kodu i raportami pokrycia.
+
+### Konfiguracja Codecov
+
+Aby skonfigurować raporty pokrycia kodu i analitykę testów:
+
+1. Zarejestruj się na [codecov.io](https://codecov.io)
+2. Połącz swoje repozytorium GitHub
+3. Dodaj `CODECOV_TOKEN` do GitHub Secrets:
+   - Idź do Settings → Secrets and variables → Actions
+   - Kliknij "New repository secret"
+   - Nazwa: `CODECOV_TOKEN`
+   - Wartość: token z codecov.io
+
+### Status testów i pokrycia
+
+[![codecov](https://codecov.io/gh/jakubskowron/allekurier-php-task/branch/main/graph/badge.svg)](https://codecov.io/gh/jakubskowron/allekurier-php-task)
